@@ -36,28 +36,11 @@
     .contact-band a:hover span,.contact-band a:focus-visible span{transform:translateX(5px)}
     .contact-band a:hover small,.contact-band a:focus-visible small{transform:translateX(-5px)}
     @media(prefers-reduced-motion:reduce){.motion-ready .panel:not(#home)>img,.motion-ready .slide-footer,.motion-ready .philosophy-line{opacity:1!important;transform:none!important;transition:none!important}#home .process-strip{animation:none}.overlay .nav a{opacity:1;transform:none;transition:none}.contact-band a span,.contact-band a small{transition:none}}
-    .art-motion{position:absolute;inset:0;z-index:1;pointer-events:none;--dx:0px;--dy:0px}
-    .art-motion::before,.art-motion::after{content:"";position:absolute;inset:0;-webkit-mask-image:radial-gradient(ellipse var(--rx) var(--ry) at var(--cx) var(--cy),#000 80%,transparent 100%);mask-image:radial-gradient(ellipse var(--rx) var(--ry) at var(--cx) var(--cy),#000 80%,transparent 100%)}
-    .art-motion::before{background:var(--paper)}
-    .art-motion::after{background:var(--art-image) center top/100% auto no-repeat;animation:artFloat 5.4s ease-in-out infinite alternate;animation-play-state:paused;transform-origin:var(--cx) var(--cy)}
-    .theme-invert .art-motion::after{filter:invert(1)}
-    .panel.in-view .art-motion::after{animation-play-state:running}
-    .art-motion.is-interacting::after{animation:none;transform:translate3d(var(--dx),var(--dy),0) scale(1.012);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-    .art-motion.is-tapped::after{animation:artTap .65s cubic-bezier(.2,.7,.2,1) both}
-    @keyframes artFloat{from{transform:translate3d(-2px,2px,0)}to{transform:translate3d(3px,-3px,0)}}
-    @keyframes artTap{0%,100%{transform:translate3d(0,0,0) scale(1)}45%{transform:translate3d(0,-6px,0) scale(1.025)}}
-    .slide-footer,.philosophy-line{z-index:2}
-    .process-stage{appearance:none;border:0;background:none;color:inherit;font:inherit;text-transform:inherit;letter-spacing:inherit;padding:9px 0;cursor:pointer;position:relative}
-    .process-stage:focus-visible{outline:2px solid currentColor;outline-offset:2px}
-    .process-strip.has-selection .process-stage,.process-strip.has-selection .process-arrow{animation:none;opacity:.35;transform:none}
-    .process-strip.has-selection .process-stage.selected{opacity:1}
-    .process-strip.has-selection .process-stage.selected::after{content:"";position:absolute;left:0;right:0;bottom:5px;border-bottom:1px solid currentColor}
-    @media(prefers-reduced-motion:reduce){.art-motion{display:none}.process-strip.has-selection .process-stage.selected{opacity:1}}
   </style>
 </head>
 <body>
   <main id="top">
-    <section class="panel" id="home"><img src="assets/01-hero.png" alt="Cre-ation. We create what people love." width="942" height="1672" fetchpriority="high"><button class="menu-hit" aria-label="Open menu"></button><a class="work-hit" href="#what-we-do" aria-label="Discover our work"></a><div class="process-strip" aria-label="Creativity leads to action, measurement and iteration"><button class="process-stage" type="button" aria-pressed="false" style="--delay:0s">Creativity</button><span class="process-arrow" style="--delay:.8s" aria-hidden="true">→</span><button class="process-stage" type="button" aria-pressed="false" style="--delay:1.6s">Action</button><span class="process-arrow" style="--delay:2.4s" aria-hidden="true">→</span><button class="process-stage" type="button" aria-pressed="false" style="--delay:3.2s">Measurement</button><span class="process-arrow" style="--delay:4s" aria-hidden="true">→</span><button class="process-stage" type="button" aria-pressed="false" style="--delay:4.8s">Iteration</button></div></section>
+    <section class="panel" id="home"><img src="assets/01-hero.png" alt="Cre-ation. We create what people love." width="942" height="1672" fetchpriority="high"><button class="menu-hit" aria-label="Open menu"></button><a class="work-hit" href="#what-we-do" aria-label="Discover our work"></a><div class="process-strip" aria-label="Creativity leads to action, measurement and iteration"><span class="process-stage" style="--delay:0s">Creativity</span><span class="process-arrow" style="--delay:.8s" aria-hidden="true">→</span><span class="process-stage" style="--delay:1.6s">Action</span><span class="process-arrow" style="--delay:2.4s" aria-hidden="true">→</span><span class="process-stage" style="--delay:3.2s">Measurement</span><span class="process-arrow" style="--delay:4s" aria-hidden="true">→</span><span class="process-stage" style="--delay:4.8s">Iteration</span></div></section>
     <section class="panel" id="system"><img src="assets/02-system.jpeg" alt="We turn imagination into reality, reality into data, and data into better ideas." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
     <section class="panel" id="not-marketing"><img src="assets/03-not-marketing.jpeg" alt="We are not a marketing agency. We create businesses, products and experiences people genuinely love." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
     <section class="panel" id="what-we-do"><img src="assets/06-what-we-do-clean.png" alt="A creative agency that makes businesses better through product, customer experience and communication." width="941" height="1672" loading="lazy"><button class="menu-hit" aria-label="Open menu"></button><div class="slide-footer" aria-label="Ideas people love. Businesses grow.">IDEAS<br>PEOPLE LOVE<br>BUSINESSES GROW<br>—</div></section>
@@ -82,51 +65,6 @@
     document.querySelector('.close').addEventListener('click',()=>toggle(false));
     document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>toggle(false)));
     document.addEventListener('keydown',event=>{if(event.key==='Escape')toggle(false)});
-    const process=document.querySelector('.process-strip');
-    process.querySelectorAll('.process-stage').forEach(stage=>stage.addEventListener('click',()=>{
-      const wasSelected=stage.classList.contains('selected');
-      process.classList.toggle('has-selection',!wasSelected);
-      process.querySelectorAll('.process-stage').forEach(item=>{
-        const selected=!wasSelected&&item===stage;
-        item.classList.toggle('selected',selected);
-        item.setAttribute('aria-pressed',String(selected));
-      });
-    }));
-    // Each artwork uses a masked copy of its existing image; the original typography stays still.
-    const artwork={
-      home:[72,63,23,14],system:[68,82,32,18],'not-marketing':[83,72,19,27],
-      'what-we-do':[77,58,23,22],focus:[50,86,46,15],model:[52,47,47,16],
-      inevitability:[59,65,40,14],fans:[51,54,44,14],philosophy:[47,83,43,8],
-      metrics:[52,79,43,14],curiosity:[52,76,47,14],conclusion:[51,43,47,13]
-    };
-    if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
-      const activeArt=new IntersectionObserver(entries=>entries.forEach(entry=>{
-        entry.target.classList.toggle('in-view',entry.isIntersecting);
-      }),{rootMargin:'30% 0px 30% 0px'});
-      Object.entries(artwork).forEach(([id,[cx,cy,rx,ry]])=>{
-        const panel=document.getElementById(id),layer=document.createElement('div');
-        layer.className='art-motion';layer.setAttribute('aria-hidden','true');
-        layer.style.setProperty('--art-image',`url("${panel.querySelector('img').getAttribute('src')}")`);
-        layer.style.setProperty('--paper',id==='home'||['system','what-we-do','model','fans','metrics','conclusion'].includes(id)?'#fff':'#050505');
-        for(const [name,value] of Object.entries({cx,cy,rx,ry}))layer.style.setProperty(`--${name}`,`${value}%`);
-        panel.append(layer);activeArt.observe(panel);
-        const move=event=>{
-          const bounds=panel.getBoundingClientRect();
-          layer.style.setProperty('--dx',`${Math.round(((event.clientX-bounds.left)/bounds.width-.5)*13)}px`);
-          layer.style.setProperty('--dy',`${Math.round(((event.clientY-bounds.top)/bounds.height-.5)*13)}px`);
-          layer.classList.add('is-interacting');
-        };
-        panel.addEventListener('pointermove',move,{passive:true});
-        let tapTimeout;
-        panel.addEventListener('pointerdown',event=>{
-          move(event);clearTimeout(tapTimeout);layer.classList.remove('is-tapped');
-          void layer.offsetWidth;layer.classList.add('is-tapped');
-          tapTimeout=setTimeout(()=>layer.classList.remove('is-tapped'),650);
-        },{passive:true});
-        const release=()=>layer.classList.remove('is-interacting');
-        panel.addEventListener('pointerleave',release);panel.addEventListener('pointerup',release);panel.addEventListener('pointercancel',release);
-      });
-    }
     if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
       const slides=[...document.querySelectorAll('.panel:not(#home)')];
       const observer=new IntersectionObserver(entries=>{
