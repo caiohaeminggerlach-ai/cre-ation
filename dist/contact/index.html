@@ -29,6 +29,12 @@
     @media(min-width:700px){main{padding:clamp(28px,4vw,44px)}.content{padding:3vh 0}h1{font-size:clamp(70px,9.4vw,100px);margin-bottom:35px}.email{margin-top:30px}}
     @media(max-height:650px){.content{padding:25px 0}h1{font-size:clamp(49px,10.5vw,84px);margin-bottom:20px}.email{margin-top:25px}}
     @media(min-width:961px){body{padding:24px 0}}
+    @keyframes arrive{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .content .eyebrow,.content h1,.content .message,.content .email{animation:arrive .75s cubic-bezier(.2,.7,.2,1) backwards}
+    .content h1{animation-delay:.1s}.content .message{animation-delay:.2s}.content .email{animation-delay:.3s}
+    .email{transition:opacity .25s ease,transform .25s ease}
+    .email:hover,.email:focus-visible{transform:translateY(-3px)}
+    @media(prefers-reduced-motion:reduce){.content .eyebrow,.content h1,.content .message,.content .email{animation:none}.email{transition:none}}
   </style>
 </head>
 <body>
