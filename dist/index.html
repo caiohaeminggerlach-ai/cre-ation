@@ -10,9 +10,29 @@
   <style>
     *{box-sizing:border-box}html{scroll-behavior:smooth;background:#050505}body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}main{width:100%;max-width:960px;margin:0 auto;background:#fff;overflow:hidden}.panel{position:relative;line-height:0}.panel img{display:block;width:100%;height:auto}.menu-hit{position:absolute;z-index:2;right:4%;top:1%;width:28%;height:6%;border:0;background:transparent;cursor:pointer}.work-hit{position:absolute;z-index:2;left:22%;top:78%;width:56%;height:8%;border:0;background:transparent;cursor:pointer}.menu-hit:focus-visible,.work-hit:focus-visible{outline:3px solid #777;outline-offset:-4px}.process-strip{position:absolute;z-index:3;left:0;right:0;top:88.85%;height:5.25%;display:flex;align-items:center;justify-content:space-around;padding:0 4.3%;background:#f8f8f6;border-top:1px solid #111;border-bottom:1px solid #111;color:#111;font-size:clamp(11px,2.15vw,21px);font-weight:400;line-height:1;letter-spacing:-.02em;text-transform:uppercase}.process-stage{animation:stagePulse 6.4s ease-in-out var(--delay) infinite;opacity:.38;transform:translateY(2px)}.process-arrow{font-size:1.45em;font-weight:300;animation:arrowPulse 6.4s ease-in-out var(--delay) infinite;opacity:.28}@keyframes stagePulse{0%,18%,100%{opacity:.38;transform:translateY(2px)}5%,13%{opacity:1;transform:translateY(0)}}@keyframes arrowPulse{0%,18%,100%{opacity:.28;transform:translateX(-2px)}5%,13%{opacity:1;transform:translateX(2px)}}.overlay{position:fixed;z-index:20;inset:0;background:#050505;color:#fff;padding:max(28px,env(safe-area-inset-top)) 6vw max(28px,env(safe-area-inset-bottom));display:grid;grid-template-rows:auto 1fr;opacity:0;pointer-events:none;transition:opacity .22s ease}.overlay.open{opacity:1;pointer-events:auto}.overlay-top{display:flex;justify-content:space-between;align-items:center;font-size:clamp(20px,5vw,38px);font-weight:700}.close{font:400 clamp(16px,4vw,26px)/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#fff;background:transparent;border:0;padding:12px;cursor:pointer}.nav{display:flex;flex-direction:column;justify-content:center;gap:1.2vh}.nav a{color:#fff;text-decoration:none;text-transform:uppercase;font-weight:900;font-stretch:condensed;font-size:clamp(38px,11vw,94px);line-height:.84;letter-spacing:-.045em}.nav a:hover,.nav a:focus-visible{color:#aaa;outline:none}@media(min-width:961px){body{padding:24px 0}.panel{box-shadow:0 0 0 1px rgba(255,255,255,.08)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.overlay{transition:none}.process-stage,.process-arrow{animation:none;opacity:1;transform:none}}
     .theme-invert img{filter:invert(1)}
-    #what-we-do{height:0;padding-bottom:154.1%;overflow:hidden}
-    #what-we-do>img{position:absolute;inset:0;width:100%;height:auto}
-    .slide-footer{position:absolute;right:5.4%;bottom:3%;color:#111;font:400 clamp(10px,1.7vw,16px)/1.22 ui-monospace,SFMono-Regular,Menlo,monospace;text-align:left;letter-spacing:.01em}
+    .services-slide{aspect-ratio:864/1536;display:flex;flex-direction:column;padding:5.4%;background:#050505;color:#fff;line-height:1.1}
+    .agency-slide{background:#fff;color:#080808}
+    .agency-slide .services-top a,.agency-slide .services-top .menu-hit{color:#080808}
+    .agency-slide .services-content{margin:10% 0 auto}
+    .agency-slide .services-kicker{margin-bottom:4%}
+    .agency-slide .services-title{font-size:clamp(42px,10.2vw,98px)}
+    .agency-intro{font:400 clamp(16px,3vw,29px)/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;max-width:25ch;margin:7% 0 0}
+    .agency-slide .services-rule{border-color:#111;margin:0 0 5%}
+    .agency-slide .services-bottom{padding-top:0}
+    .focus-slide{overflow:hidden}
+    .focus-slide .services-content{margin:12% 0 auto;position:relative;z-index:1}
+    .focus-slide .services-title{font-size:clamp(31px,9.6vw,73px)}
+    .focus-art{height:38%;width:100%;background:url('assets/08-focus.jpeg') center bottom/100% auto no-repeat;filter:invert(1);position:relative;z-index:0;margin-top:auto}
+    .focus-slide .services-bottom{position:absolute;bottom:5.4%;left:5.4%;z-index:1;padding:0}
+    .services-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .services-top a{color:#fff;text-decoration:none;font-size:clamp(22px,3.6vw,36px);font-weight:900;letter-spacing:-.07em}
+    .services-top .menu-hit{position:static;width:auto;height:auto;padding:6px 0 6px 10px;color:#fff;font:400 clamp(13px,2vw,20px)/1 ui-monospace,SFMono-Regular,Menlo,monospace}
+    .services-content{margin:auto 0}
+    .services-kicker,.services-bottom{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .services-kicker{margin:0 0 clamp(18px,4vw,38px);font-size:clamp(12px,1.8vw,18px);letter-spacing:.08em}
+    .services-title{margin:0;font:900 clamp(32px,8.1vw,78px)/.94 Impact,'Arial Narrow',Arial,sans-serif;letter-spacing:-.035em}
+    .services-rule{border:0;border-top:1px solid #fff;margin:clamp(34px,8vw,78px) 0 0}
+    .services-bottom{font-size:clamp(11px,1.8vw,18px);line-height:1.3;margin-top:auto;padding-top:clamp(20px,5vw,48px)}
     .philosophy-line{position:absolute;left:0;right:0;top:85.8%;height:6.9%;display:flex;align-items:center;padding:0 5.4%;background:#000;color:#fff;font:900 clamp(26px,8.6vw,80px)/1 Impact,'Arial Narrow',Arial,sans-serif;letter-spacing:-.06em;white-space:nowrap}
     #conclusion{height:0;padding-bottom:127%;overflow:hidden}
     #conclusion>img{position:absolute;inset:0;width:100%;height:auto}
@@ -27,8 +47,21 @@
     <section class="panel" id="home"><img src="assets/01-hero.png" alt="Cre-ation. We create what people love." width="942" height="1672" fetchpriority="high"><button class="menu-hit" aria-label="Open menu"></button><a class="work-hit" href="#what-we-do" aria-label="Discover our work"></a><div class="process-strip" aria-label="Creativity leads to action, measurement and iteration"><span class="process-stage" style="--delay:0s">Creativity</span><span class="process-arrow" style="--delay:.8s" aria-hidden="true">→</span><span class="process-stage" style="--delay:1.6s">Action</span><span class="process-arrow" style="--delay:2.4s" aria-hidden="true">→</span><span class="process-stage" style="--delay:3.2s">Measurement</span><span class="process-arrow" style="--delay:4s" aria-hidden="true">→</span><span class="process-stage" style="--delay:4.8s">Iteration</span></div></section>
     <section class="panel" id="system"><img src="assets/02-system.jpeg" alt="We turn imagination into reality, reality into data, and data into better ideas." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
     <section class="panel" id="not-marketing"><img src="assets/03-not-marketing.jpeg" alt="We are not a marketing agency. We create businesses, products and experiences people genuinely love." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="what-we-do"><img src="assets/06-what-we-do-clean.png" alt="A creative agency that makes businesses better through product, customer experience and communication." width="941" height="1672" loading="lazy"><button class="menu-hit" aria-label="Open menu"></button><div class="slide-footer" aria-label="Ideas people love. Businesses grow.">IDEAS<br>PEOPLE LOVE<br>BUSINESSES GROW<br>—</div></section>
-    <section class="panel theme-invert" id="focus"><img src="assets/08-focus.jpeg" alt="We focus on improving product, experience and communication." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
+    <section class="panel services-slide agency-slide" id="what-we-do" aria-labelledby="agency-title">
+      <header class="services-top"><a href="#home">cre-ation</a><button class="menu-hit" aria-label="Open menu">[ MENU ]</button></header>
+      <div class="services-content">
+        <p class="services-kicker">WHAT WE DO</p>
+        <h2 class="services-title" id="agency-title">WE ARE A<br>CREATIVE AGENCY<br>THAT MAKES<br>BUSINESSES<br>BETTER.</h2>
+        <p class="agency-intro">We use creativity to improve the parts of a business that drive growth.</p>
+      </div>
+      <hr class="services-rule"><div class="services-bottom">IDEAS PEOPLE LOVE. BUSINESSES GROW.</div>
+    </section>
+    <section class="panel services-slide focus-slide" id="focus" aria-labelledby="focus-title">
+      <header class="services-top"><a href="#home">cre-ation</a><button class="menu-hit" aria-label="Open menu">[ MENU ]</button></header>
+      <div class="services-content"><p class="services-kicker">OUR FOCUS</p><h2 class="services-title" id="focus-title">BETTER PRODUCTS.<br>BETTER EXPERIENCES.<br>BETTER WAYS FOR<br>PEOPLE TO DISCOVER<br>AND TALK ABOUT<br>THEM.</h2></div>
+      <div class="focus-art" aria-hidden="true"></div>
+      <div class="services-bottom">CREATE SOMETHING PEOPLE LOVE.</div>
+    </section>
     <section class="panel" id="model"><img src="assets/04-model.jpeg" alt="No retainer. Our incentives are aligned with yours." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
     <section class="panel" id="inevitability"><img src="assets/05-inevitability.png" alt="We design for inevitability and better outcomes." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
     <section class="panel theme-invert" id="fans"><img src="assets/07-fans.png" alt="Our goal is to turn customers into fans." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
