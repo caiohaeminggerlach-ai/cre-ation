@@ -3,41 +3,207 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f7f7f5">
+  <meta name="theme-color" content="#ffffff">
   <title>cre-ation — We create what people love</title>
-  <meta name="description" content="Cre-ation is a creative company improving products, customer experiences and communication.">
+  <meta name="description" content="Cre-ation improves products, customer experiences and communication. Explore our approach and start a conversation.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000'/%3E%3Ccircle cx='11' cy='12' r='6' fill='%23fff'/%3E%3Ccircle cx='21.5' cy='10' r='4.5' fill='%23fff'/%3E%3Ccircle cx='20' cy='22' r='6' fill='%23fff'/%3E%3C/svg%3E">
   <style>
-    *{box-sizing:border-box}html{scroll-behavior:smooth;background:#050505}body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}main{width:100%;max-width:960px;margin:0 auto;background:#fff;overflow:hidden}.panel{position:relative;line-height:0}.panel img{display:block;width:100%;height:auto}.menu-hit{position:absolute;z-index:2;right:4%;top:1%;width:28%;height:6%;border:0;background:transparent;cursor:pointer}.work-hit{position:absolute;z-index:2;left:22%;top:78%;width:56%;height:8%;border:0;background:transparent;cursor:pointer}.menu-hit:focus-visible,.work-hit:focus-visible{outline:3px solid #777;outline-offset:-4px}.process-strip{position:absolute;z-index:3;left:0;right:0;top:88.85%;height:5.25%;display:flex;align-items:center;justify-content:space-around;padding:0 4.3%;background:#f8f8f6;border-top:1px solid #111;border-bottom:1px solid #111;color:#111;font-size:clamp(11px,2.15vw,21px);font-weight:400;line-height:1;letter-spacing:-.02em;text-transform:uppercase}.process-stage{animation:stagePulse 6.4s ease-in-out var(--delay) infinite;opacity:.38;transform:translateY(2px)}.process-arrow{font-size:1.45em;font-weight:300;animation:arrowPulse 6.4s ease-in-out var(--delay) infinite;opacity:.28}@keyframes stagePulse{0%,18%,100%{opacity:.38;transform:translateY(2px)}5%,13%{opacity:1;transform:translateY(0)}}@keyframes arrowPulse{0%,18%,100%{opacity:.28;transform:translateX(-2px)}5%,13%{opacity:1;transform:translateX(2px)}}.overlay{position:fixed;z-index:20;inset:0;background:#050505;color:#fff;padding:max(28px,env(safe-area-inset-top)) 6vw max(28px,env(safe-area-inset-bottom));display:grid;grid-template-rows:auto 1fr;opacity:0;pointer-events:none;transition:opacity .22s ease}.overlay.open{opacity:1;pointer-events:auto}.overlay-top{display:flex;justify-content:space-between;align-items:center;font-size:clamp(20px,5vw,38px);font-weight:700}.close{font:400 clamp(16px,4vw,26px)/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#fff;background:transparent;border:0;padding:12px;cursor:pointer}.nav{display:flex;flex-direction:column;justify-content:center;gap:1.2vh}.nav a{color:#fff;text-decoration:none;text-transform:uppercase;font-weight:900;font-stretch:condensed;font-size:clamp(38px,11vw,94px);line-height:.84;letter-spacing:-.045em}.nav a:hover,.nav a:focus-visible{color:#aaa;outline:none}@media(min-width:961px){body{padding:24px 0}.panel{box-shadow:0 0 0 1px rgba(255,255,255,.08)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.overlay{transition:none}.process-stage,.process-arrow{animation:none;opacity:1;transform:none}}
-    .theme-invert img{filter:invert(1)}
-    #what-we-do{height:0;padding-bottom:154.1%;overflow:hidden}
-    #what-we-do>img{position:absolute;inset:0;width:100%;height:auto}
-    .slide-footer{position:absolute;right:5.4%;bottom:3%;color:#111;font:400 clamp(10px,1.7vw,16px)/1.22 ui-monospace,SFMono-Regular,Menlo,monospace;text-align:left;letter-spacing:.01em}
+    :root{font-family:Arial,Helvetica,sans-serif;color:#0b0b0b;background:#050505}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0}
+    main{width:100%;max-width:960px;margin:auto;background:#fff;overflow:hidden}
+    a{color:inherit}
+    button{font:inherit}
+    .panel{position:relative;isolation:isolate}
+    .light{background:#fff;color:#0b0b0b}
+    .dark{background:#050505;color:#fff}
+    .raster{line-height:0}
+    .raster>img{display:block;width:100%;height:auto}
+    .menu-hit{position:absolute;z-index:2;right:4%;top:0;width:28%;height:7%;border:0;background:transparent;cursor:pointer}
+    .work-hit{position:absolute;z-index:3;left:17%;top:78.2%;width:66%;height:6.7%;display:flex;align-items:center;justify-content:center;background:#fff;color:#111;font:400 clamp(13px,3vw,23px)/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;text-decoration:none;text-align:center}
+    .work-hit:hover{text-decoration:underline}
+    .process-strip{position:absolute;z-index:3;left:0;right:0;top:88.85%;height:5.25%;display:flex;align-items:center;justify-content:space-around;padding:0 4.3%;background:#f8f8f6;border-top:1px solid #111;border-bottom:1px solid #111;color:#111;font-size:clamp(10px,2.15vw,21px);line-height:1;letter-spacing:-.02em;text-transform:uppercase}
+    .process-stage,.process-arrow{opacity:.38;animation:pulse 6.4s ease-in-out var(--delay) infinite}
+    .process-arrow{font-size:1.45em}
+    @keyframes pulse{0%,18%,100%{opacity:.38}5%,13%{opacity:1}}
+    .editorial{padding:clamp(20px,5.4vw,54px);min-height:145vw;display:flex;flex-direction:column}
+    .topline{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(60px,15vw,150px)}
+    .wordmark{font-size:clamp(22px,3.4vw,34px);font-weight:900;letter-spacing:-.07em;text-decoration:none}
+    .menu-button{border:0;background:none;color:inherit;padding:10px 0 10px 10px;cursor:pointer;font:400 clamp(13px,2.15vw,20px)/1 ui-monospace,SFMono-Regular,Menlo,monospace}
+    .eyebrow,.mono,.section-index,.small-copy{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .eyebrow{font-size:clamp(12px,1.8vw,18px);letter-spacing:.13em;text-transform:uppercase;margin:0 0 12px}
+    h1,h2,h3,p{margin-top:0}
+    .display{font-family:Impact,'Arial Narrow',Arial,sans-serif;font-stretch:condensed;font-weight:900;letter-spacing:-.045em;line-height:.91;text-transform:uppercase;margin:0}
+    .display.xl{font-size:clamp(55px,13.2vw,126px)}
+    .display.lg{font-size:clamp(51px,11vw,108px)}
+    .display.md{font-size:clamp(38px,8vw,79px)}
+    .lead{font:400 clamp(18px,3vw,28px)/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;max-width:38ch;margin:clamp(27px,6vw,58px) 0}
+    .small-copy{font-size:clamp(15px,2.1vw,20px);line-height:1.45}
+    .rule{border:0;border-top:1px solid currentColor;opacity:.65;margin:clamp(30px,7vw,68px) 0}
+    .slide-foot{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:auto;padding-top:clamp(55px,12vw,118px);font:400 clamp(12px,1.9vw,18px)/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase}
+    .steps{margin-top:clamp(30px,8vw,80px)}
+    .step{display:grid;grid-template-columns:3.3em 1fr;gap:12px;border-top:1px solid currentColor;padding:clamp(16px,3vw,30px) 0;align-items:start}
+    .step:last-child{border-bottom:1px solid currentColor}
+    .step-num{font:400 clamp(13px,2vw,19px)/1.2 ui-monospace,SFMono-Regular,Menlo,monospace}
+    .step h3{font:900 clamp(27px,5.6vw,55px)/.95 Impact,'Arial Narrow',Arial,sans-serif;letter-spacing:-.035em;text-transform:uppercase;margin:0 0 8px}
+    .step p{font:400 clamp(15px,2.25vw,21px)/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;margin:0;max-width:34ch}
+    .columns{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(45px,11vw,110px)}
+    .column{border-top:1px solid currentColor;padding-top:14px}
+    .column strong{display:block;font:900 clamp(24px,4.8vw,48px)/.96 Impact,'Arial Narrow',Arial,sans-serif;text-transform:uppercase;margin-bottom:16px}
+    .column p{font:400 clamp(14px,1.9vw,19px)/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;margin:0}
+    .note{max-width:56ch;border-top:1px solid currentColor;margin-top:clamp(55px,11vw,112px);padding-top:18px;font:400 clamp(16px,2.4vw,23px)/1.42 ui-monospace,SFMono-Regular,Menlo,monospace}
+    .note-label{display:block;font-size:.72em;letter-spacing:.12em;margin-bottom:15px;text-transform:uppercase}
+    .example-badge{display:inline-block;border:1px solid currentColor;padding:8px 11px;margin:0 0 24px;font:400 clamp(11px,1.8vw,16px)/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.08em}
+    .example-head{max-width:11ch}
+    .metric-line{margin:clamp(44px,9vw,90px) 0 0;display:flex;align-items:center;flex-wrap:wrap;gap:.4em;font:900 clamp(24px,5.1vw,49px)/1 Impact,'Arial Narrow',Arial,sans-serif;text-transform:uppercase}
+    .metric-line span{font-family:Arial,sans-serif;font-weight:300}
+    .model-list{margin-top:clamp(26px,7vw,70px)}
+    .model-list p{margin:0;border-top:1px solid currentColor;padding:16px 0;font:400 clamp(16px,2.5vw,23px)/1.36 ui-monospace,SFMono-Regular,Menlo,monospace}
+    .model-list p:last-child{border-bottom:1px solid currentColor}
+    .model-list b{display:inline-block;font-weight:400;min-width:3.5em}
+    .art-window{height:42vw;max-height:395px;overflow:hidden;margin:clamp(28px,6vw,60px) 0 0}
+    .art-window img{display:block;width:100%;height:auto;transform:translateY(-31%)}
+    .email-link{display:block;font:900 clamp(33px,7.3vw,72px)/1 Impact,'Arial Narrow',Arial,sans-serif;letter-spacing:-.04em;text-transform:uppercase;text-decoration:none;overflow-wrap:anywhere;border-bottom:2px solid currentColor;padding-bottom:12px;margin:clamp(48px,10vw,100px) 0 0}
+    .email-link:hover{opacity:.65}
+    .closing-img img{width:100%;height:auto;display:block}
+    .overlay{position:fixed;z-index:20;inset:0;background:#050505;color:#fff;padding:max(28px,env(safe-area-inset-top)) 6vw max(28px,env(safe-area-inset-bottom));display:grid;grid-template-rows:auto 1fr;opacity:0;pointer-events:none;transition:opacity .22s ease}
+    .overlay.open{opacity:1;pointer-events:auto}
+    .overlay-top{display:flex;justify-content:space-between;align-items:center;font-size:clamp(20px,5vw,38px);font-weight:700}
+    .close{font:400 clamp(16px,4vw,26px)/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#fff;background:transparent;border:0;padding:12px;cursor:pointer}
+    .nav{display:flex;flex-direction:column;justify-content:center;gap:1.2vh}
+    .nav a{color:#fff;text-decoration:none;text-transform:uppercase;font-weight:900;font-family:Impact,'Arial Narrow',Arial,sans-serif;font-size:clamp(38px,11vw,94px);line-height:.9;letter-spacing:-.04em}
+    .nav a:hover,.nav a:focus-visible{color:#aaa}
+    a:focus-visible,button:focus-visible{outline:3px solid #888;outline-offset:4px}
+    @media(max-width:520px){
+      .editorial{min-height:160vw}
+      .columns{grid-template-columns:1fr;gap:23px}
+      .column{display:grid;grid-template-columns:42% 1fr;gap:12px}
+      .column strong{margin:0}
+      .topline{margin-bottom:clamp(52px,16vw,90px)}
+      .display.xl{font-size:clamp(52px,13.2vw,68px)}
+    }
+    @media(min-width:961px){body{padding:24px 0}.panel{box-shadow:0 0 0 1px rgba(255,255,255,.08)}.editorial{min-height:1150px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.overlay{transition:none}.process-stage,.process-arrow{animation:none;opacity:1}}
   </style>
 </head>
 <body>
   <main id="top">
-    <section class="panel" id="home"><img src="assets/01-hero.png" alt="Cre-ation. We create what people love." width="942" height="1672" fetchpriority="high"><button class="menu-hit" aria-label="Open menu"></button><a class="work-hit" href="#what-we-do" aria-label="Discover our work"></a><div class="process-strip" aria-label="Creativity leads to action, measurement and iteration"><span class="process-stage" style="--delay:0s">Creativity</span><span class="process-arrow" style="--delay:.8s" aria-hidden="true">→</span><span class="process-stage" style="--delay:1.6s">Action</span><span class="process-arrow" style="--delay:2.4s" aria-hidden="true">→</span><span class="process-stage" style="--delay:3.2s">Measurement</span><span class="process-arrow" style="--delay:4s" aria-hidden="true">→</span><span class="process-stage" style="--delay:4.8s">Iteration</span></div></section>
-    <section class="panel" id="system"><img src="assets/02-system.jpeg" alt="We turn imagination into reality, reality into data, and data into better ideas." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="not-marketing"><img src="assets/03-not-marketing.jpeg" alt="We are not a marketing agency. We create businesses, products and experiences people genuinely love." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="what-we-do"><img src="assets/06-what-we-do-clean.png" alt="A creative agency that makes businesses better through product, customer experience and communication." width="941" height="1672" loading="lazy"><button class="menu-hit" aria-label="Open menu"></button><div class="slide-footer" aria-label="Ideas people love. Businesses grow.">IDEAS<br>PEOPLE LOVE<br>BUSINESSES GROW<br>—</div></section>
-    <section class="panel theme-invert" id="model"><img src="assets/04-model.jpeg" alt="No retainer. Our incentives are aligned with yours." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel theme-invert" id="inevitability"><img src="assets/05-inevitability.png" alt="We design for inevitability and better outcomes." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="fans"><img src="assets/07-fans.png" alt="Our goal is to turn customers into fans." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="focus"><img src="assets/08-focus.jpeg" alt="We focus on improving product, experience and communication." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="philosophy"><img src="assets/09-philosophy.jpeg" alt="Our philosophy: action, reality, simplicity and clarity." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="metrics"><img src="assets/10-metrics.jpeg" alt="Three metrics, one goal: acquisition, retention and referral." loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="curiosity"><img src="assets/11-curiosity.png" alt="Curiosity is our competitive advantage. We observe, question assumptions, test and measure what matters." width="941" height="1672" loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
-    <section class="panel" id="conclusion"><img src="assets/12-conclusion.jpeg" alt="The beautiful underlying system: creativity, action, measurement and iteration." width="1024" height="1536" loading="lazy"><button class="menu-hit" aria-label="Open menu"></button></section>
+    <section class="panel light raster" id="home" aria-label="Cre-ation. We create what people love.">
+      <img src="assets/01-hero.png" alt="We create what people love. Cre-ation, a creative company." width="942" height="1672" fetchpriority="high">
+      <button class="menu-hit" aria-label="Open menu"></button>
+      <a class="work-hit" href="#work" aria-label="Explore our illustrative approach">[ → EXPLORE OUR APPROACH ]</a>
+      <div class="process-strip" aria-label="Creativity leads to action, measurement and iteration"><span class="process-stage" style="--delay:0s">Creativity</span><span class="process-arrow" style="--delay:.8s" aria-hidden="true">→</span><span class="process-stage" style="--delay:1.6s">Action</span><span class="process-arrow" style="--delay:2.4s" aria-hidden="true">→</span><span class="process-stage" style="--delay:3.2s">Measurement</span><span class="process-arrow" style="--delay:4s" aria-hidden="true">→</span><span class="process-stage" style="--delay:4.8s">Iteration</span></div>
+    </section>
+
+    <section class="panel light editorial" id="system" aria-labelledby="system-title">
+      <header class="topline"><a class="wordmark" href="#home">cre-ation</a><button class="menu-button" aria-label="Open menu">[ MENU ]</button></header>
+      <p class="eyebrow">01 / The system</p>
+      <h2 class="display lg" id="system-title">IMAGINATION<br>INTO REALITY.<br>REALITY<br>INTO DATA.<br>DATA INTO<br>BETTER IDEAS.</h2>
+      <div class="steps" aria-label="Our process">
+        <div class="step"><span class="step-num">01</span><div><h3>Creativity</h3><p>Find the opportunity.</p></div></div>
+        <div class="step"><span class="step-num">02</span><div><h3>Action</h3><p>Make the idea real.</p></div></div>
+        <div class="step"><span class="step-num">03</span><div><h3>Measurement</h3><p>Learn what works.</p></div></div>
+        <div class="step"><span class="step-num">04</span><div><h3>Iteration</h3><p>Make it better.</p></div></div>
+      </div>
+      <div class="slide-foot"><span>CREATE → MEASURE → IMPROVE</span><span>02 / 09</span></div>
+    </section>
+
+    <section class="panel dark editorial" id="not-marketing" aria-labelledby="not-marketing-title">
+      <header class="topline"><a class="wordmark" href="#home">cre-ation</a><button class="menu-button" aria-label="Open menu">[ MENU ]</button></header>
+      <p class="eyebrow">02 / The difference</p>
+      <h2 class="display xl" id="not-marketing-title">WE ARE NOT A<br>MARKETING<br>AGENCY.</h2>
+      <p class="lead">We create businesses, products and experiences people genuinely love and want to talk about.</p>
+      <hr class="rule">
+      <h3 class="display md">MARKETING CANNOT<br>SAVE A BAD PRODUCT.</h3>
+      <p class="note"><span class="note-label">Our point of view</span>Make something valuable. Then make it easy to discover, experience and share.</p>
+      <div class="slide-foot"><span>REAL VALUE FIRST.</span><span>03 / 09</span></div>
+    </section>
+
+    <section class="panel light editorial" id="what-we-do" aria-labelledby="what-we-do-title">
+      <header class="topline"><a class="wordmark" href="#home">cre-ation</a><button class="menu-button" aria-label="Open menu">[ MENU ]</button></header>
+      <p class="eyebrow">03 / What we do</p>
+      <h2 class="display lg" id="what-we-do-title">A CREATIVE<br>AGENCY THAT<br>MAKES BUSINESSES<br>BETTER.</h2>
+      <p class="lead">We improve the parts of a business that create growth.</p>
+      <div class="columns">
+        <div class="column"><strong>Product.</strong><p>Make the thing people buy more valuable.</p></div>
+        <div class="column"><strong>Experience.</strong><p>Make every interaction useful and memorable.</p></div>
+        <div class="column"><strong>Communication.</strong><p>Make the value easy to understand and share.</p></div>
+      </div>
+      <p class="note"><span class="note-label">What we care about</span>Looks great. Means something. Performs.</p>
+      <div class="slide-foot"><span>IDEAS PEOPLE LOVE. BUSINESSES GROW.</span><span>04 / 09</span></div>
+    </section>
+
+    <section class="panel dark editorial" id="work" aria-labelledby="work-title">
+      <header class="topline"><a class="wordmark" href="#home">cre-ation</a><button class="menu-button" aria-label="Open menu">[ MENU ]</button></header>
+      <p class="eyebrow">04 / Our approach in practice</p>
+      <span class="example-badge">Illustrative example · not a client case study</span>
+      <h2 class="display lg example-head" id="work-title">TURN A FIRST<br>PURCHASE INTO<br>A REASON TO<br>COME BACK.</h2>
+      <p class="lead">Imagine a business getting customers, but losing too many after the first purchase. Here is how we would approach it.</p>
+      <div class="steps">
+        <div class="step"><span class="step-num">01</span><div><h3>Observe</h3><p>Find where the product or experience falls short.</p></div></div>
+        <div class="step"><span class="step-num">02</span><div><h3>Create</h3><p>Improve the moments customers actually value.</p></div></div>
+        <div class="step"><span class="step-num">03</span><div><h3>Measure</h3><p>Track repeat purchases and referrals.</p></div></div>
+        <div class="step"><span class="step-num">04</span><div><h3>Iterate</h3><p>Keep what works. Improve what does not.</p></div></div>
+      </div>
+      <div class="metric-line">ACQUIRE <span>→</span> RETAIN <span>→</span> REFER</div>
+      <div class="slide-foot"><span>AN EXAMPLE OF THE THINKING, NOT A CLAIMED RESULT.</span><span>05 / 09</span></div>
+    </section>
+
+    <section class="panel light editorial" id="model" aria-labelledby="model-title">
+      <header class="topline"><a class="wordmark" href="#home">cre-ation</a><button class="menu-button" aria-label="Open menu">[ MENU ]</button></header>
+      <p class="eyebrow">05 / How we work together</p>
+      <h2 class="display xl" id="model-title">NO<br>RETAINER.</h2>
+      <p class="lead">Our incentives are aligned with yours: we make more when you make more.</p>
+      <div class="art-window" aria-hidden="true"><img src="assets/04-model.jpeg" alt="" loading="lazy"></div>
+      <div class="model-list">
+        <p><b>01 /</b> Agree on your current revenue baseline.</p>
+        <p><b>02 /</b> Define the work, the measurement period and how added revenue is attributed.</p>
+        <p><b>03 /</b> Agree on a share of the revenue generated above that baseline.</p>
+      </div>
+      <p class="note"><span class="note-label">A transparent starting point</span>The exact terms depend on the project and are agreed before any work begins.</p>
+      <div class="slide-foot"><span>SHARED UPSIDE. CLEAR TERMS.</span><span>06 / 09</span></div>
+    </section>
+
+    <section class="panel dark raster closing-img" id="curiosity" aria-label="Our curiosity and method">
+      <img src="assets/11-curiosity.png" alt="Curiosity is our competitive advantage. We observe, question assumptions, test, measure and adapt." width="941" height="1672" loading="lazy">
+      <button class="menu-hit" aria-label="Open menu"></button>
+    </section>
+
+    <section class="panel light raster closing-img" id="conclusion" aria-label="Our framework and the result">
+      <img src="assets/12-conclusion.jpeg" alt="Creativity finds opportunities. Action makes them real. Measurement reveals what customers respond to. Iteration makes the system better." width="1024" height="1536" loading="lazy">
+      <button class="menu-hit" aria-label="Open menu"></button>
+    </section>
+
+    <section class="panel dark editorial" id="contact" aria-labelledby="contact-title">
+      <header class="topline"><a class="wordmark" href="#home">cre-ation</a><button class="menu-button" aria-label="Open menu">[ MENU ]</button></header>
+      <p class="eyebrow">08 / Get in touch</p>
+      <h2 class="display xl" id="contact-title">LET'S MAKE<br>SOMETHING<br>BETTER.</h2>
+      <p class="lead">Tell us what you are building, what is getting in the way and what better would look like.</p>
+      <a class="email-link" href="mailto:hello@cre-ation.io?subject=Let's%20create%20something%20better">HELLO@CRE-ATION.IO ↗</a>
+      <div class="slide-foot"><span>CREATIVITY → ACTION → MEASUREMENT → ITERATION</span><span>09 / 09</span></div>
+    </section>
   </main>
   <aside class="overlay" aria-hidden="true" aria-label="Site menu">
     <div class="overlay-top"><span>cre-ation</span><button class="close" aria-label="Close menu">[ CLOSE ]</button></div>
-    <nav class="nav"><a href="#home">Home</a><a href="#what-we-do">What we do</a><a href="#philosophy">Philosophy</a><a href="#metrics">Metrics</a><a href="#conclusion">Conclusion</a></nav>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#what-we-do">What we do</a>
+      <a href="#work">Our approach</a>
+      <a href="#model">Our model</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </aside>
   <script>
     const overlay=document.querySelector('.overlay');
-    const toggle=(open)=>{overlay.classList.toggle('open',open);overlay.setAttribute('aria-hidden',String(!open));document.body.style.overflow=open?'hidden':'';(open?document.querySelector('.close'):document.querySelector('.menu-hit'))?.focus()};
-    document.querySelectorAll('.menu-hit').forEach(button=>button.addEventListener('click',()=>toggle(true)));
+    const openers=document.querySelectorAll('.menu-hit,.menu-button');
+    const toggle=(open)=>{
+      overlay.classList.toggle('open',open);
+      overlay.setAttribute('aria-hidden',String(!open));
+      document.body.style.overflow=open?'hidden':'';
+      if(open)document.querySelector('.close').focus();
+    };
+    openers.forEach(button=>button.addEventListener('click',()=>toggle(true)));
     document.querySelector('.close').addEventListener('click',()=>toggle(false));
     document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>toggle(false)));
     document.addEventListener('keydown',event=>{if(event.key==='Escape')toggle(false)});
