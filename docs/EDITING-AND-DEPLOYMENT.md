@@ -1,3 +1,19 @@
+# Current preview deployment (github-pages branch)
+
+Repository: https://github.com/cottrellashley/cre-ation (public).
+Live preview: https://cottrellashley.github.io/cre-ation/.
+Deployment branch: github-pages. Main is unchanged. GitHub Pages uses GitHub Actions;
+the workflow checks out github-pages on its push event and deploys the built dist.
+No custom domain or DNS is configured. public/CNAME has been removed on this branch.
+Astro uses site https://cottrellashley.github.io and base /cre-ation. Use withBase()
+from src/utils/withBase.ts for all root-relative navigation and public image URLs,
+including SVG crops. Hash-only, mailto and external links remain unchanged.
+Local preview lives at /cre-ation/ too. Check nested URLs under that prefix.
+
+The remaining original handoff documentation refers to main. Its statements about
+private access and preserving the production domain do not apply to this branch.
+Do not reintroduce CNAME or change DNS when publishing this preview.
+
 # Editing and handing over the website
 
 ## For the owner: no coding required

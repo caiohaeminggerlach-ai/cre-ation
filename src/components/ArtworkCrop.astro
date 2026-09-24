@@ -1,9 +1,10 @@
 ---
+import { withBase } from '../utils/withBase';
 interface Props { src: string; width: number; height: number; crop: number[]; invert?: boolean }
 const { src, width, height, crop, invert = false } = Astro.props;
 const clipId = `crop-${src.replace(/[^a-z0-9]/gi, '-')}-${crop.join('-')}`;
 ---
 <svg class:list={['desktop-art', { 'invert-art': invert }]} viewBox={crop.join(' ')} aria-hidden="true" focusable="false">
   <defs><clipPath id={clipId}><rect x={crop[0]} y={crop[1]} width={crop[2]} height={crop[3]} /></clipPath></defs>
-  <image href={src} width={width} height={height} clip-path={`url(#${clipId})`} />
+  <image href={withBase(src)} width={width} height={height} clip-path={`url(#${clipId})`} />
 </svg>

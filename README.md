@@ -1,3 +1,16 @@
+# Public GitHub Pages preview
+
+Live URL: https://cottrellashley.github.io/cre-ation/
+
+This `github-pages` branch deploys the site through GitHub Actions. `main` is left
+unchanged as the original handoff version. This branch has no custom domain or DNS
+configuration. Run `npm run dev` and open http://localhost:4321/cre-ation/ locally.
+Internal links and image paths use `src/utils/withBase.ts` to retain the repository
+prefix. Push this branch to publish updates. The repository is public.
+
+The original handoff notes below describe main; domain-preservation instructions do
+not apply to this preview branch. See AGENTS.md for the branch-specific override.
+
 # cre-ation website
 
 ## Start here — no coding required

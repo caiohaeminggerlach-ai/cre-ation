@@ -1,3 +1,14 @@
+# Deployment override for the github-pages branch
+
+This branch publishes https://cottrellashley.github.io/cre-ation/ from the public
+cottrellashley/cre-ation repository. Leave main unchanged. Push this branch for preview
+updates. There is NO custom domain, CNAME or DNS setup on this branch. Astro site is
+https://cottrellashley.github.io and base is /cre-ation. All root-relative links and
+assets must use src/utils/withBase.ts, including SVG image hrefs. The Pages workflow
+runs on github-pages pushes (and manual dispatch); Pages uses GitHub Actions.
+The original production-domain instructions below are historical handoff context,
+not permission to reintroduce a custom domain on this branch.
+
 # Codex instructions for cre-ation
 
 Read this file at the start of work in this repository, then read README.md and

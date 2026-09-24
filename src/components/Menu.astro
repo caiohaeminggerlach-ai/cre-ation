@@ -1,1 +1,4 @@
-<aside class="overlay" aria-hidden="true" inert role="dialog" aria-modal="true" id="site-menu" aria-label="Site menu"><div class="overlay-top"><span>cre-ation</span><button class="close" aria-label="Close menu">[ CLOSE ]</button></div><nav class="nav"><a href="/">Home</a><a href="/work/">Our work</a><a href="/#what-we-do">What we do</a><a href="/#metrics">Metrics</a><a href="/contact/">Contact</a></nav></aside>
+---
+import { withBase } from '../utils/withBase';
+---
+<aside class="overlay" aria-hidden="true" inert role="dialog" aria-modal="true" id="site-menu" aria-label="Site menu"><div class="overlay-top"><span>cre-ation</span><button class="close" aria-label="Close menu">[ CLOSE ]</button></div><nav class="nav"><a href={withBase('/')}>Home</a><a href={withBase('/work/')}>Our work</a><a href={withBase('/#what-we-do')}>What we do</a><a href={withBase('/#metrics')}>Metrics</a><a href={withBase('/contact/')}>Contact</a></nav></aside>
