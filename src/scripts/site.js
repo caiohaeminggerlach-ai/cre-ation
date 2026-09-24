@@ -42,3 +42,29 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
   });
   document.documentElement.classList.add('motion-ready');
 }
+
+// Native momentum and CSS snap do the scrolling. Some WebKit versions leave a
+// scroller between image-panel snap points; correct only after scrolling stops.
+const mobileScroller = document.querySelector('main:has(.panel)');
+if (mobileScroller) {
+  const portrait = matchMedia('(max-width: 999px) and (orientation: portrait)');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let touching = false;
+  let settleTimer;
+  const settle = () => {
+    if (!portrait.matches || reducedMotion.matches || touching || document.body.classList.contains('menu-open')) return;
+    const max = mobileScroller.scrollHeight - mobileScroller.clientHeight;
+    const top = mobileScroller.getBoundingClientRect().top;
+    const points = [...mobileScroller.querySelectorAll('.panel')].map(panel =>
+      Math.min(max, panel.getBoundingClientRect().top - top + mobileScroller.scrollTop));
+    points.push(max); // Keep the final contact/back link reachable.
+    const nearest = points.reduce((a, b) => Math.abs(b - mobileScroller.scrollTop) < Math.abs(a - mobileScroller.scrollTop) ? b : a);
+    if (Math.abs(nearest - mobileScroller.scrollTop) > 2) mobileScroller.scrollTo({ top: nearest, behavior: 'smooth' });
+  };
+  const schedule = () => { clearTimeout(settleTimer); settleTimer = setTimeout(settle, 180); };
+  mobileScroller.addEventListener('scroll', schedule, { passive: true });
+  mobileScroller.addEventListener('scrollend', settle, { passive: true });
+  mobileScroller.addEventListener('touchstart', () => { touching = true; clearTimeout(settleTimer); }, { passive: true });
+  mobileScroller.addEventListener('touchend', () => { touching = false; schedule(); }, { passive: true });
+  mobileScroller.addEventListener('touchcancel', () => { touching = false; schedule(); }, { passive: true });
+}

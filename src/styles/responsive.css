@@ -28,3 +28,40 @@ main { overflow: visible; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-snap-type: none; scroll-behavior: auto; }
 }
+
+/* iPhone portrait: one stable, native momentum scroller. Safari's expanding
+   browser bars must not resize the snap points in the middle of a swipe. */
+@media (max-width: 999px) and (orientation: portrait) {
+  html:has(.panel) { overflow: hidden; scroll-snap-type: none; }
+  body:has(.panel) { overflow: hidden; height: 100svh; }
+  body:not(.contact-page) main {
+    position: fixed;
+    inset: 0;
+    height: 100svh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+  .panel {
+    height: 100svh;
+    min-height: 100svh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .panel > .slide-art { width: min(100%, var(--art-width)); }
+  #conclusion > .slide-art { width: min(100%, 69.42373svh); }
+  /* Compositor fades/scales made successive image panels feel late on iOS.
+     Keep the artwork ready and let the native swipe provide the movement. */
+  .motion-ready .panel > .slide-art > img {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  body.menu-open main { overflow: hidden; }
+}
+@media (max-width: 999px) and (orientation: portrait) and (prefers-reduced-motion: reduce) {
+  body:not(.contact-page) main { scroll-behavior: auto; scroll-snap-type: none; }
+}

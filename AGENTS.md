@@ -115,3 +115,20 @@ On the production repository, pushing main triggers the Pages workflow, provided
 Pages is configured to use GitHub Actions. Verify the workflow and live site before
 saying deployed. A successful push alone is not proof of deployment. Ashley's copy
 is a handoff source; do not transfer the production domain to it automatically.
+
+## Mobile scrolling (preview branch)
+
+Portrait screens below 1000px use main as the native overflow scroller, with a
+stable 100svh height. Each panel fits that height, contains its original artwork,
+and uses mandatory snapping with scroll-snap-stop: always. Do not switch it back
+to optional root scrolling or dynamic-height snap points without testing in iOS
+Safari: browser toolbar resizing can change the settling position mid-swipe.
+Mobile image reveal transforms are disabled so panels are immediately visible.
+Landscape retains natural document scrolling; reduced motion disables smooth
+scrolling and snapping. Menu locking must lock main too. Use main.scrollTop when
+testing portrait scroll positions, and check fragment links inside that scroller.
+
+site.js also includes a WebKit fallback: after scrollend (or 180ms idle), settle
+to the nearest section only if native snapping left a gap. Never prevent native
+touchmove or adjust scroll while a touch is active. The footer is a valid final
+position. This fallback is disabled outside mobile portrait and for reduced motion.
