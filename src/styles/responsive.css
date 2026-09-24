@@ -1,0 +1,30 @@
+/* Keep the original artwork proportions and overlay coordinates at every size. */
+html { scroll-snap-type: y proximity; }
+body { padding: 0; }
+main { overflow: visible; }
+.panel {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  scroll-snap-align: start;
+}
+.slide-art { width: 100%; container-type: inline-size; }
+.process-strip { font-size: clamp(8px, 2.15cqw, 21px); }
+#conclusion { aspect-ratio: auto; }
+#conclusion > .slide-art { position: relative; inset: auto; aspect-ratio: 1024 / 1475; overflow: hidden; }
+.overlay { visibility: hidden; overflow-y: auto; }
+.overlay.open { visibility: visible; }
+.nav { padding-block: 24px; }
+.menu-hit { min-height: 44px; }
+.work-section-link { position:absolute; left:6%; width:88%; height:5.9%; z-index:3; cursor:pointer; border-radius:2px; }
+.work-section-link:hover { background:rgba(0,0,0,.035); }
+.work-section-link:focus-visible { outline:2px solid #111; outline-offset:2px; }
+.contact-band { scroll-snap-align: end; }
+/* Short screens keep readable artwork and allow natural scrolling. */
+@media (max-height: 599px) and (orientation: landscape) {
+  body:not(.contact-page) main { max-width: 600px; }
+}
+.contact-page main { background: #050505; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-snap-type: none; scroll-behavior: auto; }
+}

@@ -1,0 +1,50 @@
+---
+import ArtworkCrop from './ArtworkCrop.astro';
+import { work } from '../data/work';
+interface Props { id: string }
+const { id } = Astro.props;
+const item = work.find(item => item.id === id);
+const steps = ['Creativity', 'Action', 'Measurement', 'Iteration'];
+---
+<div class:list={['desktop-panel', `desktop-${id}`, { 'desktop-case': !!item }]}>
+  <header class="desktop-header">
+    <a href="/" class="desktop-brand">cre-ation</a>
+    <button class="desktop-menu" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false">[ MENU ]</button>
+  </header>
+  {id === 'home' && <>
+    <div class="desktop-hero-grid">
+      <h1>WE CREATE<br/>WHAT PEOPLE<br/>LOVE.</h1>
+      <div class="hero-identity"><ArtworkCrop src="/assets/01-hero.png" width={942} height={1672} crop={[430, 700, 480, 520]} /><p>CRE-ATION®<br/>A CREATIVE COMPANY</p></div>
+    </div>
+    <div class="hero-bottom"><a class="desktop-link" href="/work/">[ → DISCOVER OUR WORK ]</a><span>CREATIVITY INTO ACTION.</span></div>
+    <div class="desktop-process">{steps.map((step, i) => <><span class="process-stage" style={`--delay:${i * 1.6}s`}>{step}</span>{i < 3 && <span aria-hidden="true">→</span>}</>)}</div>
+  </>}
+  {id === 'system' && <div class="desktop-split">
+    <h2>WE TURN<br/>IMAGINATION<br/>INTO REALITY,<br/>REALITY INTO DATA,<br/>AND DATA INTO<br/>BETTER IDEAS.</h2>
+    <div class="desktop-rows">{['Creativity drives the idea.', 'Action makes it real.', 'Measurement tells us what works.', 'Iteration makes it better.'].map((line, i) => <div><small>0{i+1}</small><p>{line}</p></div>)}</div>
+  </div>}
+  {id === 'not-marketing' && <>
+    <div class="desktop-split"><h2>WE ARE NOT A<br/>MARKETING<br/>AGENCY.</h2><div class="desktop-copy"><h3>WE DON’T MANUFACTURE DEMAND.</h3><p>We create businesses, products & experiences people genuinely love — and want to talk about.</p><h3>MARKETING CAN’T<br/>SAVE A BAD PRODUCT.</h3><p>So we look at the whole business.</p></div></div>
+    <div class="desktop-rule-row"><span>PRODUCT.</span><span>CUSTOMER EXPERIENCE.</span><span>COMMUNICATION.</span></div>
+  </>}
+  {id === 'what-we-do' && <>
+    <div class="desktop-split"><div><h2>WE MAKE<br/>BUSINESSES<br/>BETTER.</h2><p class="desktop-intro">Better products. Better customer experiences.<br/>Better ways to discover and talk about them.</p></div><div class="desktop-copy"><div class="desktop-rows">{['Product.', 'Customer experience.', 'Communication.'].map((line,i)=><div><small>0{i+1}</small><h3>{line}</h3></div>)}</div><h3>LOOKS GREAT. MEANS SOMETHING. PERFORMS.</h3><p>We bridge creativity and performance — because how something looks and feels matters, and so do the results.</p></div></div>
+  </>}
+  {id === 'metrics' && <>
+    <div class="desktop-split"><h2>THREE METRICS.<br/>ONE GOAL:<br/>GROWTH.</h2><ArtworkCrop src="/assets/05-metrics-growth.jpeg" width={1024} height={1536} crop={[80, 640, 870, 720]} /></div>
+    <div class="desktop-columns">{[['ACQUISITION.', 'Turn attention into customers.'], ['RETENTION.', 'Give them a reason to stay.'], ['REFERRAL.', 'Create something worth recommending.']].map(([heading, text]) => <div><h3>{heading}</h3><p>{text}</p></div>)}</div>
+    <p class="desktop-caption">ACQUIRE → RETAIN → REFER → REPEAT.</p>
+  </>}
+  {id === 'model' && <div class="desktop-split"><div><h2>NO<br/>RETAINER.</h2><p class="desktop-intro">OUR INCENTIVES ARE ALIGNED WITH YOURS.</p><ArtworkCrop src="/assets/04-model.jpeg" width={864} height={1536} crop={[20, 480, 810, 365]} /></div><div class="desktop-copy"><h2>WE ONLY<br/>MAKE MORE<br/>WHEN YOU<br/>MAKE MORE.</h2><p>We take a percentage of the revenue we generate above your current revenue, and that’s it.</p></div></div>}
+  {id === 'conclusion' && <>
+    <h2>THE BEAUTIFUL UNDERLYING SYSTEM.</h2>
+    <ArtworkCrop src="/assets/12-conclusion-clean.png" width={1024} height={1536} crop={[25, 500, 970, 275]} invert />
+    <div class="desktop-columns four">{[['CREATIVITY', 'Finds opportunities.'], ['ACTION', 'Turns them into products, experiences and communication.'], ['MEASUREMENT', 'Tells us what customers respond to.'], ['ITERATION', 'Makes the entire system better.']].map(([heading, text]) => <div><h3>{heading}</h3><p>{text}</p></div>)}</div>
+    <p class="desktop-result">MORE CUSTOMERS. MORE VALUE PER CUSTOMER. MORE ADVOCACY.</p>
+  </>}
+  {id === 'execution' && <div class="desktop-split"><div><h1>OUR WORK<br/>WITH<br/>THE GREY.</h1><ArtworkCrop src="/assets/work/00-our-work-the-grey.jpeg" width={941} height={1672} crop={[125, 1000, 810, 555]} /></div><nav class="desktop-work-links" aria-label="Our work">{work.map(item => <a href={`#${item.id}`}><small>{item.number}</small><span>{item.title}</span><span aria-hidden="true">↗</span></a>)}</nav></div>}
+  {item && <>
+    <div class="desktop-case-grid"><div class="desktop-case-copy"><p class="desktop-eyebrow">{item.number} / THE GREY</p><h2>{item.title}</h2><p class="desktop-intro">{item.intro}</p>{item.note && <p class="desktop-note">{item.note}</p>}<h3 class="case-label">{item.label}</h3><ul class:list={{ shortlist: item.id === 'brand-ambassadors' }}>{item.items.map(line=><li>{line}</li>)}</ul>{item.end && <p>{item.end}</p>}</div><ArtworkCrop src={`/assets/work/${item.image}`} width={864} height={1536} crop={item.crop}/></div>
+    <div class="desktop-case-footer"><strong>THE GREY<small>Men’s Skincare</small></strong><a class="desktop-link" href="/work/">[ ALL WORK ↗ ]</a></div>
+  </>}
+</div>

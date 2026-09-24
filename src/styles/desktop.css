@@ -1,0 +1,78 @@
+/* Mobile keeps the original art; desktop uses real text and landscape composition. */
+.desktop-panel { display: none; }
+@media (min-width: 1000px) {
+  body:not(.contact-page) main { max-width: none; }
+  .panel { display: block; height: auto; min-height: 100svh; overflow: visible; }
+  .panel > .slide-art { display: none; }
+  .desktop-panel {
+    display: flex; flex-direction: column; gap: clamp(20px, 3svh, 36px);
+    width: 100%; min-height: 100svh; padding: 26px 4.5vw 28px;
+    color: #050505; background: #fff; line-height: 1.35;
+  }
+  #not-marketing .desktop-panel, #metrics .desktop-panel, #conclusion .desktop-panel { background: #050505; color: #fff; }
+  .desktop-panel a { color: inherit; text-decoration: none; }
+  .desktop-panel a:hover { opacity: .65; }
+  .desktop-panel :is(a, button):focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
+  .desktop-header { display: flex; justify-content: space-between; align-items: center; flex: 0 0 auto; }
+  .desktop-brand { font: 900 32px/1 Arial, sans-serif; letter-spacing: -.075em; }
+  .desktop-menu { border: 0; background: none; color: inherit; padding: 12px 0 12px 24px; font: 17px/1 ui-monospace, monospace; cursor: pointer; }
+  .desktop-panel :is(h1,h2,h3,p) { margin: 0; }
+  .desktop-panel :is(h1,h2,h3) { font-family: Impact, 'Arial Narrow', sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -.035em; line-height: .96; }
+  .desktop-panel h1 { font-size: clamp(88px, min(10.5vw, 18svh), 200px); }
+  .desktop-panel h2 { font-size: clamp(60px, min(7.5vw, 12svh), 150px); }
+  .desktop-panel h3 { font-size: clamp(25px, 2.7vw, 48px); }
+  .desktop-panel p { font-size: clamp(17px, 1.5vw, 25px); }
+  .desktop-panel small, .desktop-link, .desktop-eyebrow, .desktop-note { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .desktop-split { display: grid; grid-template-columns: 1.15fr 1fr; gap: 6vw; align-items: center; flex: 1; }
+  .desktop-copy { display: flex; flex-direction: column; gap: 28px; }
+  .desktop-intro { margin-top: 26px !important; max-width: 46ch; }
+  .desktop-art { display: block; width: 100%; min-width: 0; max-height: 57svh; }
+  .invert-art { filter: invert(1); }
+  .desktop-hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2vw; align-items: center; flex: 1; }
+  .hero-identity { text-align: center; }
+  .hero-identity .desktop-art { max-height: 49svh; }
+  .hero-identity p { margin-top: 12px; font: 700 14px/1.5 Arial,sans-serif; letter-spacing: .15em; }
+  .hero-bottom { display: flex; align-items: center; justify-content: space-between; font: 14px/1.5 ui-monospace, monospace; letter-spacing: .04em; }
+  .desktop-link { font-size: 17px; padding-block: 12px; }
+  .desktop-process { display: flex; justify-content: space-between; align-items: center; border-block: 1px solid; padding-block: 19px; text-transform: uppercase; font-size: 15px; }
+  .desktop-rows { display: grid; gap: 28px; }
+  .desktop-rows > div { border-top: 1px solid; padding-top: 12px; }
+  .desktop-rows small { font-size: 13px; }
+  .desktop-rows p, .desktop-rows h3 { margin-top: 12px; }
+  .desktop-system h2 { font-size: clamp(58px, min(6.5vw, 11.5svh), 120px); }
+  .desktop-rule-row, .desktop-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3vw; border-top: 1px solid; padding-top: 22px; }
+  .desktop-rule-row { font: 28px/1.1 Impact,'Arial Narrow',sans-serif; }
+  .desktop-columns p { margin-top: 12px; font-size: clamp(15px, 1.3vw, 22px); }
+  .desktop-columns.four { grid-template-columns: repeat(4, 1fr); }
+  .desktop-columns.four h3 { font-size: clamp(22px, 2.3vw, 38px); }
+  .desktop-caption { font-family: Impact,'Arial Narrow',sans-serif; }
+  .desktop-model .desktop-art { margin-top: 30px; max-height: 30svh; }
+  .desktop-model .desktop-copy h2 { font-size: clamp(60px, min(7vw, 11.5svh), 130px); }
+  .desktop-conclusion > h2 { font-size: clamp(44px, 5.3vw, 100px); }
+  .desktop-conclusion > .desktop-art { max-height: 32svh; flex: 1; }
+  .desktop-result { border-top: 1px solid; padding-top: 20px; font-family: Impact,'Arial Narrow',sans-serif; font-size: clamp(25px, 3vw, 48px) !important; }
+  .desktop-execution h1 { font-size: clamp(70px, min(8vw, 13svh), 150px); }
+  .desktop-execution .desktop-art { max-height: 30svh; margin-top: 20px; }
+  .desktop-work-links { display: grid; }
+  .desktop-work-links a { display: grid; grid-template-columns: 30px 1fr 20px; gap: 16px; align-items: baseline; border-top: 1px solid; padding-block: 25px; font-size: clamp(18px, 1.9vw, 30px); }
+  .desktop-work-links small { font-size: 12px; }
+  .desktop-case-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 6vw; align-items: center; flex: 1; }
+  .desktop-case-copy { display: flex; flex-direction: column; gap: 18px; }
+  .desktop-case h2 { font-size: clamp(52px, min(6.3vw, 10.5svh), 110px); }
+  .desktop-case .desktop-intro { margin-top: 0 !important; font: clamp(15px, 1.3vw, 21px)/1.45 ui-monospace,monospace; }
+  .desktop-case .desktop-note { font-size: 15px; }
+  .desktop-case h3.case-label { font: 14px/1.4 ui-monospace,monospace; letter-spacing: .03em; border-bottom: 1px solid; padding-bottom: 10px; }
+  .desktop-case ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font: clamp(14px, 1.15vw, 18px)/1.4 ui-monospace,monospace; }
+  .desktop-case ul.shortlist { grid-template-columns: 1fr 1fr; }
+  .desktop-case .desktop-art { max-height: 72svh; }
+  .desktop-case-footer { display: flex; justify-content: space-between; align-items: end; margin-top: auto; }
+  .desktop-case-footer strong { font: 700 25px/1 Arial,sans-serif; }
+  .desktop-case-footer small { display: block; text-align: center; font: 11px/1.5 Arial,sans-serif; }
+  body.contact-page main { max-width: none; padding: 32px 4.5vw; }
+  body.contact-page .content { display: grid; grid-template-columns: 1.1fr 1fr; column-gap: 7vw; align-items: center; }
+  body.contact-page .eyebrow { grid-column: 1 / -1; }
+  body.contact-page h1 { grid-column: 1; grid-row: 2 / 4; font-size: clamp(90px, 9vw, 165px); margin: 0; }
+  body.contact-page .message { grid-column: 2; align-self: end; }
+  body.contact-page .email { grid-column: 2; align-self: start; font-size: clamp(30px, 3.4vw, 64px); justify-self: start; }
+  .contact-band { padding-inline: 4.5vw; }
+}
