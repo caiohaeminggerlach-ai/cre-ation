@@ -38,12 +38,16 @@ client results, testimonials or business claims. Keep changes within the request
 - `src/data/work.ts`: desktop case-study content, slugs, lists and crop coordinates.
 - `src/components/ArtworkCrop.astro`: SVG viewport and clip path showing a detail of
   an existing image; coordinates are `[x, y, width, height]` in source image space.
+- `src/components/FixedHeader.astro` and `src/styles/header.css`: one fixed header
+  shared across pages. White glyphs with mix-blend-mode: difference provide pixel-level
+  contrast across section edges. Do not replace this with whole-header theme toggles.
+  Mobile artwork has its baked-in header clipped from the top 6%; preserve that rule.
 - `src/components/HomeMenu.astro` and `Menu.astro`: current menu link lists.
 - `src/layouts/Site.astro`: shared document, title, description, favicon and imports.
 - `src/styles/site.css`: original shared styles. `responsive.css`: mobile, snapping,
   menu visibility. `desktop.css`: actual landscape compositions. Check specificity;
   contact scoped styles can override generic selectors.
-- `src/scripts/site.js`: both menu trigger types, focus trap, Escape, scroll locking,
+- `src/scripts/site.js`: the shared fixed menu trigger, focus trap, Escape, scroll locking,
   section reveals and reduced-motion handling.
 - `public/assets/`: original images. `public/CNAME`: cre-ation.io domain declaration.
 - `astro.config.mjs`: static output, canonical site URL and trailing slashes.

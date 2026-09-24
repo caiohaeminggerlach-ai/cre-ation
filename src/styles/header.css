@@ -1,0 +1,28 @@
+/* Blend the actual glyph pixels with the page, not a section-wide theme switch.
+   Keep this header a direct body child: no opaque backing or isolated ancestor. */
+:root { --header-x: 5.4vw; --header-y: max(12px, env(safe-area-inset-top)); }
+.fixed-header {
+  position: fixed; inset: var(--header-y) var(--header-x) auto;
+  z-index: 30; display: flex; align-items: center; justify-content: space-between;
+  color: #fff; mix-blend-mode: difference; pointer-events: none;
+}
+.fixed-header a, .fixed-header button { color: inherit; pointer-events: auto; }
+.fixed-brand { font: 900 26px/1 Arial,sans-serif; letter-spacing: -.075em; text-decoration: none; padding-block: 9px; }
+.fixed-menu, .overlay .close { font: 400 14px/1 ui-monospace,SFMono-Regular,Menlo,monospace; background: none; border: 0; padding: 15px 0 15px 15px; cursor: pointer; }
+.fixed-header :focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+body.menu-open .fixed-menu { visibility: hidden; }
+.overlay .overlay-top > span { visibility: hidden; }
+.overlay .close { position: fixed; right: var(--header-x); top: var(--header-y); color: #fff; }
+.overlay .nav { padding-top: 60px; }
+/* The old mobile header is baked into the top 6% of each artwork.
+   Clip only that strip; preserve image sizing and all other overlay coordinates. */
+.panel > .slide-art > img { clip-path: inset(6% 0 0 0); }
+@media (min-width: 1000px) {
+  :root { --header-x: 4.5vw; --header-y: max(26px, env(safe-area-inset-top)); }
+  .fixed-brand { font-size: 32px; padding-block: 6px; }
+  .fixed-menu, .overlay .close { font-size: 17px; padding-block: 13.5px; }
+  .desktop-panel { padding-top: 97px; }
+}
+/* Reserve space for the shared header on the native contact page. */
+body.contact-page main { padding-top: 88px; }
+@media (min-width: 1000px) { body.contact-page main { padding-top: 110px; } }

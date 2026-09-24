@@ -54,8 +54,10 @@ Page titles, descriptions and image alt text should stay aligned with visible co
 
 Shared styles load as site.css, responsive.css and desktop.css. The contact page also
 has scoped styles. Desktop starts at 1000px. Keep the mobile `.slide-art` and desktop
-`.desktop-panel` visibility rules paired. The menu script listens to `.menu-hit` and
-`.desktop-menu`; preserve accessible names, aria state, focus handling and keyboard use.
+`.desktop-panel` visibility rules paired. The shared fixed header is in FixedHeader.astro and header.css. Its white text uses
+mix-blend-mode: difference for per-pixel inversion across black/white edges. The old
+mobile artwork header is clipped from its top 6%, so there are no repeated logos or
+menu labels scrolling behind the fixed header. The menu script listens to `.fixed-menu`; preserve accessible names, aria state, focus handling and keyboard use.
 IDs are shared by page sections and menu anchors; changing one requires updating links.
 
 Images are kept in public/assets and copied unchanged to dist/assets at build time.

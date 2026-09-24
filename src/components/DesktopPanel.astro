@@ -7,10 +7,6 @@ const item = work.find(item => item.id === id);
 const steps = ['Creativity', 'Action', 'Measurement', 'Iteration'];
 ---
 <div class:list={['desktop-panel', `desktop-${id}`, { 'desktop-case': !!item }]}>
-  <header class="desktop-header">
-    <a href="/" class="desktop-brand">cre-ation</a>
-    <button class="desktop-menu" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false">[ MENU ]</button>
-  </header>
   {id === 'home' && <>
     <div class="desktop-hero-grid">
       <h1>WE CREATE<br/>WHAT PEOPLE<br/>LOVE.</h1>

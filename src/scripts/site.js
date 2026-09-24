@@ -1,6 +1,6 @@
 const overlay = document.querySelector('.overlay');
 if (overlay) {
-  const triggers = document.querySelectorAll('.menu-hit, .desktop-menu');
+  const triggers = document.querySelectorAll('.fixed-menu');
   const close = overlay.querySelector('.close');
   let returnFocus;
   const toggle = (open) => {
@@ -8,6 +8,8 @@ if (overlay) {
     overlay.classList.toggle('open', open);
     overlay.setAttribute('aria-hidden', String(!open));
     overlay.inert = !open;
+    document.body.classList.toggle('menu-open', open);
+    document.querySelector('.fixed-header').inert = open;
     document.body.style.overflow = open ? 'hidden' : '';
     document.querySelector('main').inert = open;
     triggers.forEach(button => button.setAttribute('aria-expanded', String(open)));
