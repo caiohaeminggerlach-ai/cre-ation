@@ -176,17 +176,12 @@ so the normal build deploys the prior version; do not reset/force-push shared hi
 
 ## Mobile scrolling (preview branch)
 
-Portrait screens below 1000px use main as the native overflow scroller, with a
-stable 100svh height. Each panel fits that height, contains its original artwork,
-and uses mandatory snapping with scroll-snap-stop: always. Do not switch it back
-to optional root scrolling or dynamic-height snap points without testing in iOS
-Safari: browser toolbar resizing can change the settling position mid-swipe.
-Mobile image reveal transforms are disabled so panels are immediately visible.
-Landscape retains natural document scrolling; reduced motion disables smooth
-scrolling and snapping. Menu locking must lock main too. Use main.scrollTop when
-testing portrait scroll positions, and check fragment links inside that scroller.
-
-site.js also includes a WebKit fallback: after scrollend (or 180ms idle), settle
-to the nearest section only if native snapping left a gap. Never prevent native
-touchmove or adjust scroll while a touch is active. The footer is a valid final
-position. This fallback is disabled outside mobile portrait and for reduced motion.
+Use normal document scrolling, with mandatory CSS snapping for portrait screens
+below 1000px. Never put main in a fixed, separately scrolling viewport: that
+implementation was followed by blank-panel reports on iPhone. There is no JavaScript
+scroll-position correction. Panels use stable 100svh sizing and contained artwork.
+All mobile panel images are visible without reveal animations and load eagerly.
+Do not rely on IntersectionObserver or lazy loading to make essential artwork visible.
+Landscape retains natural scrolling. Reduced motion disables smooth scrolling and
+snapping. Test actual image visibility on every section, not just scroll offsets,
+without changing image loading behaviour in the test. Menu locking uses body overflow.
