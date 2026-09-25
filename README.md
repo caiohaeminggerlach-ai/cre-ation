@@ -1,16 +1,3 @@
-# Public GitHub Pages preview
-
-Live URL: https://cottrellashley.github.io/cre-ation/
-
-This `github-pages` branch deploys the site through GitHub Actions. `main` is left
-unchanged as the original handoff version. This branch has no custom domain or DNS
-configuration. Run `npm run dev` and open http://localhost:4321/cre-ation/ locally.
-Internal links and image paths use `src/utils/withBase.ts` to retain the repository
-prefix. Push this branch to publish updates. The repository is public.
-
-The original handoff notes below describe main; domain-preservation instructions do
-not apply to this preview branch. See AGENTS.md for the branch-specific override.
-
 # cre-ation website
 
 ## Start here — no coding required
@@ -20,10 +7,9 @@ Open this repository in Codex and describe the change you want. Codex should rea
 guide](docs/EDITING-AND-DEPLOYMENT.md) includes example prompts, the source map,
 phone/desktop editing, and how to clone this copy into your own GitHub repository.
 
-This is Ashley’s handoff copy: https://github.com/cottrellashley/cre-ation.
-The original production repository is https://github.com/caiohaeminggerlach-ai/cre-ation.
-Publishing from the handoff copy is not automatically configured; preserve the
-existing production domain when handing the changes back.
+Production repository: https://github.com/caiohaeminggerlach-ai/cre-ation.
+Ashley’s handoff repository remains the source provenance for the current design:
+https://github.com/cottrellashley/cre-ation.
 
 A fully static Astro site for https://cre-ation.io. Original artwork, page URLs,
 menu links and motion are preserved. No application server is needed in production.
